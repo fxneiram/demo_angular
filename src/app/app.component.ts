@@ -15,9 +15,10 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'User Service';
+  title = 'Demo User Service';
 
   users: DtoUser[] = [];
+  total: number | undefined;
 
   constructor(private usersService: UsersService) {}
 
@@ -28,6 +29,7 @@ export class AppComponent {
   getUsers() {
     this.usersService.apiV1UsersGet("123456789").subscribe((data: DtoSearchUsersResponse) => {
       this.users = data.result || [];
+      this.total = data.total || 0;
     });
   }
 }
