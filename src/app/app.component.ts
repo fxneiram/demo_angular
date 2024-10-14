@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DtoSearchUsersResponse, DtoUser, UsersService } from './core/modules/openapi';
+import {BASE_PATH, DtoSearchUsersResponse, DtoUser, UsersService} from './core/modules/openapi';
 import {HttpClientModule} from '@angular/common/http';
-import { CommonModule } from '@angular/common'; // <-- Importar aquí
+import { CommonModule } from '@angular/common';
+import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HttpClientModule, CommonModule],
-  providers: [UsersService],
+  providers: [UsersService, {provide: BASE_PATH, useValue: environment.apiUrl}],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
