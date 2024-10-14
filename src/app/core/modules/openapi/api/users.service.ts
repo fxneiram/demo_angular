@@ -39,7 +39,7 @@ import {
 })
 export class UsersService implements UsersServiceInterface {
 
-    protected basePath = 'http://localhost';
+    protected basePath = 'http://localhost:8081';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;
