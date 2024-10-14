@@ -1,27 +1,11 @@
 <main class="main">
   <div class="content">
+    <app-nav></app-nav>
     <div class="row">
       <h1>{{ title }}</h1>
       <p>App is running. 🎉</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{ user.id }}</td>
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.email }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </main>
-<router-outlet />
+
