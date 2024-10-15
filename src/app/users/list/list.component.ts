@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router} from '@angular/router';
 import {NgForOf} from "@angular/common";
 import {DtoSearchUsersResponse, DtoUser, UsersService} from '../../core/modules/openapi';
 
@@ -16,9 +15,13 @@ export class ListComponent {
   users: DtoUser[] = [];
   total: number | undefined;
 
-  constructor(private usersService: UsersService, private router: Router) {}
+  constructor(private usersService: UsersService) {}
 
   ngOnInit() {
+    console.log('ngOnInit executed');
+  }
+
+  ngAfterViewInit() {
     this.getUsers();
   }
 
