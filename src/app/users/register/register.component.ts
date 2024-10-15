@@ -11,7 +11,7 @@ import {AlertComponent} from '../../exp/alert/alert.component';
     AlertComponent
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   user: DtoUser = {} as DtoUser;

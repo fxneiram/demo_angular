@@ -11,7 +11,7 @@ import {DtoSearchUsersResponse, DtoUser, UsersService} from '../../core/modules/
         HttpClientModule
     ],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  styleUrls: ['./list.component.css']
 })
 export class ListComponent {
   users: DtoUser[] = [];

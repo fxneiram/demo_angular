@@ -9,7 +9,7 @@ import {NgClass, NgIf} from '@angular/common';
     NgClass
   ],
   templateUrl: './alert.component.html',
-  styleUrl: './alert.component.scss'
+  styleUrls: ['./alert.component.css']
 })
 export class AlertComponent {
   @Input() title: string = '';
