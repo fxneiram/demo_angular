@@ -1,0 +1,13 @@
+<footer id="footer">
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="list-unstyled">
+        <li *ngFor="let repo of githubUrls">
+          <a [href]="repo.url" target="_blank" rel="noopener noreferrer">{{ repo.name }}</a>
+        </li>
+      </ul>
+      <p>Made by <b>{{ author }}</b></p>
+      <p>Theme License <a href="https://github.com/thomaspark/bootswatch/blob/master/LICENSE">: MIT License</a>.</p>
+    </div>
+  </div>
+</footer>

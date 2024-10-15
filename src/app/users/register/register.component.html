@@ -1,0 +1,57 @@
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <app-alert></app-alert>
+
+  <fieldset>
+    <legend class="mt-4">User Information</legend>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label mt-4">First Name</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Enter first name" [(ngModel)]="user.first_name" name="firstName" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="lastName" class="form-label mt-4">Last Name</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" [(ngModel)]="user.last_name" name="lastName" required>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="user.email" name="email" required>
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="col-md-6">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" placeholder="Enter age" [(ngModel)]="user.age" name="age" min="1" required>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <label for="dni" class="form-label">DNI</label>
+        <input type="text" class="form-control" id="dni" placeholder="Enter DNI" [(ngModel)]="user.dni" name="dni" required>
+      </div>
+
+      <div class="col-md-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" [(ngModel)]="user.status" name="status" required>
+          <option value="enabled" selected>Enabled</option>
+          <option value="disabled">Disabled</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" [(ngModel)]="user.gender" name="gender" required>
+          <option value="Male" selected>Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </fieldset>
+</form>
