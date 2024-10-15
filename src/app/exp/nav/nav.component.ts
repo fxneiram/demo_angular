@@ -9,7 +9,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
     RouterLinkActive
   ],
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.scss'
+  styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
 

@@ -202,7 +202,6 @@ export class UsersService implements UsersServiceInterface {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -274,7 +273,6 @@ export class UsersService implements UsersServiceInterface {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -346,7 +344,6 @@ export class UsersService implements UsersServiceInterface {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -425,7 +422,6 @@ export class UsersService implements UsersServiceInterface {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -507,7 +503,6 @@ export class UsersService implements UsersServiceInterface {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
