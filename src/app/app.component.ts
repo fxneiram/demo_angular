@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import {BASE_PATH, DtoSearchUsersResponse, DtoUser, UsersService} from './core/modules/openapi';
+import { RouterOutlet } from '@angular/router';
+import {BASE_PATH, UsersService} from './core/modules/openapi';
 import {HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { environment } from '../environments/environment';

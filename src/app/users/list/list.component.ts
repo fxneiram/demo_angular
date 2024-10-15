@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 import {NgForOf} from "@angular/common";
 import {DtoSearchUsersResponse, DtoUser, UsersService} from '../../core/modules/openapi';
 
@@ -6,7 +7,8 @@ import {DtoSearchUsersResponse, DtoUser, UsersService} from '../../core/modules/
   selector: 'app-list',
   standalone: true,
     imports: [
-        NgForOf
+        NgForOf,
+        HttpClientModule
     ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
