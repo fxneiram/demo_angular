@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   angular-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
-      - "80:80"
+      - "4200:4200"
     environment:
       - NODE_ENV=development
+    volumes:
+      - .:/usr/src/app  # Esto permite que los cambios en el código se reflejen en el contenedor
