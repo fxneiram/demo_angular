@@ -1,1 +1,78 @@
-<p>upload works!</p>
+<form (ngSubmit)="onSubmit()" #dualLangMediaForm="ngForm">
+  <app-alert></app-alert>
+
+  <fieldset>
+    <legend class="mt-4">Media Information</legend>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="primaryName" class="form-label mt-4">Primary Name</label>
+        <input type="text" class="form-control" id="primaryName" placeholder="Enter primary name"
+               [(ngModel)]="mediaRequest.primaryName" name="primaryName" required maxlength="255" #primaryName="ngModel">
+        <div *ngIf="primaryName.invalid && (primaryName.dirty || primaryName.touched)">
+          <small class="text-danger">Primary name is required and must be less than 255 characters.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="primaryLang" class="form-label mt-4">Primary Language</label>
+        <input type="text" class="form-control" id="primaryLang" placeholder="Enter primary language (e.g., 'en')"
+               [(ngModel)]="mediaRequest.primaryLang" name="primaryLang" required minlength="2" maxlength="2" #primaryLang="ngModel">
+        <div *ngIf="primaryLang.invalid && (primaryLang.dirty || primaryLang.touched)">
+          <small class="text-danger">Primary language is required and must be 2 characters.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="secondaryName" class="form-label mt-4">Secondary Name</label>
+        <input type="text" class="form-control" id="secondaryName" placeholder="Enter secondary name"
+               [(ngModel)]="mediaRequest.secondaryName" name="secondaryName" required maxlength="255" #secondaryName="ngModel">
+        <div *ngIf="secondaryName.invalid && (secondaryName.dirty || secondaryName.touched)">
+          <small class="text-danger">Secondary name is required and must be less than 255 characters.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="secondaryLang" class="form-label mt-4">Secondary Language</label>
+        <input type="text" class="form-control" id="secondaryLang" placeholder="Enter secondary language (e.g., 'es')"
+               [(ngModel)]="mediaRequest.secondaryLang" name="secondaryLang" required minlength="2" maxlength="2" #secondaryLang="ngModel">
+        <div *ngIf="secondaryLang.invalid && (secondaryLang.dirty || secondaryLang.touched)">
+          <small class="text-danger">Secondary language is required and must be 2 characters.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" placeholder="Enter description"
+                  [(ngModel)]="mediaRequest.description" name="description" required minlength="100" maxlength="1000" #description="ngModel"></textarea>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)">
+          <small class="text-danger">Description is required and must be between 100 and 1000 characters.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <label for="tags" class="form-label">Tags</label>
+        <input type="text" class="form-control" id="tags" placeholder="Enter tags separated by commas"
+               [(ngModel)]="mediaRequest.tags" name="tags">
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <label for="file" class="form-label">File (Base64)</label>
+        <input type="text" class="form-control" id="file" placeholder="Enter file in Base64 format"
+               [(ngModel)]="mediaRequest.base64file" name="file" required #file="ngModel">
+        <div *ngIf="file.invalid && (file.dirty || file.touched)">
+          <small class="text-danger">File in Base64 format is required.</small>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4" [disabled]="dualLangMediaForm.invalid">Submit</button>
+  </fieldset>
+</form>

@@ -10,6 +10,8 @@ import {BASE_PATH, UsersService} from "./core/modules/openapi";
 import {environment} from "../environments/environment";
 import {RouterOutlet} from "@angular/router";
 import { UploadComponent } from './videos/upload/upload.component';
+import {AlertComponent} from "./exp/alert/alert.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { UploadComponent } from './videos/upload/upload.component';
     NavComponent,
     FooterComponent,
     HttpClientModule,
-    RouterOutlet
+    RouterOutlet,
+    AlertComponent,
+    FormsModule
   ],
   providers: [
     UsersService, {provide: BASE_PATH, useValue: environment.apiUrl}
