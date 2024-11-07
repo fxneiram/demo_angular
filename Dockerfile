@@ -1,30 +1,32 @@
-# Usar una imagen de Node.js para construir la app
-FROM node:20 AS build
+# Usar la imagen oficial de Node.js como base
+FROM node:18 AS builder
 
-# Establecer el directorio de trabajo
-WORKDIR /app
+# Crear el directorio de trabajo
+WORKDIR /usr/src/app
 
-# Copiar el archivo package.json y package-lock.json
+# Copiar los archivos del proyecto
 COPY package*.json ./
-
-# Instalar las dependencias
 RUN npm install
 
-# Copiar el resto de los archivos
+# Copiar el resto de los archivos de la aplicación
 COPY . .
 
-# Construir la app
-RUN npm run build --prod
+# Construir la aplicación para producción
+RUN npm run build:ssr
 
-# Usar Nginx para servir la app
-FROM nginx:alpine
+# Usar una imagen más ligera para el despliegue
+FROM node:18 AS runner
+WORKDIR /usr/src/app
 
-# Copiar los archivos de construcción al directorio de Nginx
-COPY --from=build /app/dist/demo-angular/browser /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# Copiar el build de la etapa anterior
+COPY --from=builder /usr/src/app/dist/demo_angular ./dist/demo_angular
 
-# Exponer el puerto 80
-EXPOSE 80
+# Instalar las dependencias necesarias
+COPY package*.json ./
+RUN npm install --omit=dev
 
-# Comando para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Exponer el puerto
+EXPOSE 4200
+
+# Comando para ejecutar la aplicación
+CMD ["node", "dist/demo_angular/server/main.js"]
