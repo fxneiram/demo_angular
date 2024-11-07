@@ -10,3 +10,4 @@ run-docker:
 	@echo "Running server..."
 	@docker-compose down
 	@docker-compose up --build
+	@echo "OK"
