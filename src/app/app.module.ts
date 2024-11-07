@@ -9,10 +9,12 @@ import {FooterComponent} from "./exp/footer/footer.component";
 import {BASE_PATH, UsersService} from "./core/modules/openapi";
 import {environment} from "../environments/environment";
 import {RouterOutlet} from "@angular/router";
+import { UploadComponent } from './videos/upload/upload.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
