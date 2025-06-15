@@ -66,13 +66,12 @@
     <div class="row mt-4">
       <div class="col-md-4">
         <label for="file" class="form-label">File (Base64)</label>
-        <input type="text" class="form-control" id="file" placeholder="Enter file in Base64 format"
-               [(ngModel)]="mediaRequest.base64file" name="file" required #file="ngModel">
-        <div *ngIf="file.invalid && (file.dirty || file.touched)">
-          <small class="text-danger">File in Base64 format is required.</small>
-        </div>
+        <input type="file" class="form-control" id="file" placeholder="Upload file"
+               (change)="onFileChange($event)" required>
+
       </div>
     </div>
+
     <button type="submit" class="btn btn-primary mt-4" [disabled]="dualLangMediaForm.invalid">Submit</button>
   </fieldset>
 </form>
